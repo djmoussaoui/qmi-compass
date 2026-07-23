@@ -81,7 +81,7 @@ export function HomePage() {
             </div>
 
             {/* Title */}
-             <p className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-3 leading-tight">
+             <p className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-2 leading-tight">
                QMI: Qur&apos;an as a Medium of Instruction
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-3 leading-tight">
@@ -91,22 +91,22 @@ export function HomePage() {
             <p className="text-sm text-muted-foreground mb-1">
              
             </p>
-            <p className="text-lg text-muted-foreground/80 mb-2 font-medium">
+            <p className="text-lg text-muted-foreground/80 mb-2 font-bold">
               القرآن كوسيلة للتعليم
             </p>
 
             {/* Tagline */}
             <div className="max-w-2xl mx-auto mb-8">
-              <p className="text-base sm:text-lg text-foreground/90 leading-relaxed font-medium mb-2">
+              <p className="text-base sm:text-lg text-foreground/90 leading-relaxed font-bold mb-2">
                 من المبادئ القرآنية إلى الممارسة التعليمية
               </p>
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold">
                 تساعد بوصلة QMI المعلمين على تحويل المبادئ التربوية والقيم المستلهمة من القرآن إلى مواقف تعليمية عملية قابلة للتطبيق والملاحظة والتأمل والتقويم.
               </p>
             </div>
 
             {/* Alternative tagline */}
-            <p className="text-sm text-primary/70 italic mb-8">
+            <p className="text-sm text-primary/70 italic mb-8 font-bold">
               كل درس فرصة لبناء الإنسان
             </p>
 
@@ -138,7 +138,11 @@ export function HomePage() {
         </div>
 
         {/* Wave separator */}
-        
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 60L60 52C120 44 240 28 360 22C480 16 600 20 720 28C840 36 960 48 1080 48C1200 48 1320 36 1380 30L1440 24V60H1380C1320 60 1200 60 1080 60C960 60 840 60 720 60C600 60 480 60 360 60C240 60 120 60 60 60H0Z" fill="var(--color-background)" />
+          </svg>
+        </div>
       </section>
 
       {/* How It Works */}
