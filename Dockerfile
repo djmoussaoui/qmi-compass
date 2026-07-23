@@ -35,8 +35,8 @@ ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
 # Create non-root user for security
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
+RUN groupadd --system --gid 1001 nodejs && \
+    useradd --system --uid 1001 --gid nodejs nextjs
 
 # Set up directories
 RUN mkdir -p /app/data /app/public && \
