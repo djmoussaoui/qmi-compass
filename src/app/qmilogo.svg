@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 512 512">
+
+  <defs>
+    <linearGradient id="green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2E7D32"/>
+      <stop offset="100%" stop-color="#1B5E20"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Islamic Arch -->
+  <path d="M256 55
+           C170 55 110 120 110 200
+           L125 200
+           C125 135 180 85 256 85
+           C332 85 387 135 387 200
+           L402 200
+           C402 120 342 55 256 55Z"
+        fill="#C6A34A"/>
+
+  <!-- Open Quran -->
+  <path d="M150 205
+           Q205 180 256 205
+           Q307 180 362 205
+           L362 285
+           Q307 260 256 285
+           Q205 260 150 285Z"
+        fill="url(#green)"
+        stroke="#C6A34A"
+        stroke-width="5"/>
+
+  <line x1="256" y1="205" x2="256" y2="285"
+        stroke="#C6A34A"
+        stroke-width="4"/>
+
+  <!-- Leaves -->
+  <path d="M256 170
+           C235 145 210 138 190 145
+           C205 170 225 188 250 195Z"
+        fill="#43A047"/>
+
+  <path d="M256 170
+           C277 145 302 138 322 145
+           C307 170 287 188 262 195Z"
+        fill="#43A047"/>
+
+  <path d="M256 145
+           C252 118 256 95 256 88
+           C270 110 272 135 264 160Z"
+        fill="#2E7D32"/>
+
+  <!-- Base -->
+  <path d="M170 320 Q256 345 342 320"
+        fill="none"
+        stroke="#1B5E20"
+        stroke-width="10"/>
+
+  <!-- English initials -->
+  <text x="256"
+        y="390"
+        text-anchor="middle"
+        font-family="Georgia"
+        font-size="62"
+        font-weight="bold"
+        fill="#1B5E20">
+        QMI
+  </text>
+
+  <!-- Arabic -->
+  <text x="256"
+        y="432"
+        text-anchor="middle"
+        direction="rtl"
+        unicode-bidi="bidi-override"
+        font-family="Amiri, Noto Naskh Arabic, Cairo"
+        font-size="24"
+        fill="#1B5E20">
+        التربية بالقيم
+  </text>
+
+  <text x="256"
+        y="462"
+        text-anchor="middle"
+        direction="rtl"
+        unicode-bidi="bidi-override"
+        font-family="Amiri, Noto Naskh Arabic, Cairo"
+        font-size="24"
+        fill="#1B5E20">
+        والسلوك القرآني
+  </text>
+
+</svg>
