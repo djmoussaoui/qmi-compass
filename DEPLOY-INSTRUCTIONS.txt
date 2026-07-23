@@ -1,0 +1,86 @@
+============================================
+QMI Compass - بوصلة التعليم القرآني
+Google Cloud Deployment Package
+============================================
+
+📁 PACKAGE CONTENTS (130 files, 115KB)
+--------------------------------------------
+src/          → All source code (React components, APIs, data)
+prisma/       → Database schema (SQLite)
+public/       → Static assets (logo, robots.txt)
+deploy/       → Deployment scripts & configs
+Dockerfile    → Container build (Bun + Next.js)
+package.json  → Dependencies
+
+
+🚀 HOW TO DEPLOY TO GOOGLE CLOUD
+============================================
+
+PREREQUISITES:
+  1. A Google Cloud Platform account (cloud.google.com)
+  2. gcloud CLI installed on your machine
+  3. Docker installed on your machine
+  4. A GCP project with billing enabled
+
+
+METHOD 1: CLOUD RUN (Recommended)
+----------------------------------
+1. Extract the archive:
+   tar xzf qmi-compass.tar.gz
+   cd qmi-compass
+
+2. Install dependencies (generates bun.lock):
+   npm install --legacy-peer-deps
+   # or: bun install
+
+3. Login to Google Cloud:
+   gcloud auth login
+   gcloud config set project YOUR_PROJECT_ID
+
+4. Run the deploy script:
+   chmod +x deploy/cloud-run.sh
+   ./deploy/cloud-run.sh
+
+5. Done! The script outputs your live URL.
+
+
+METHOD 2: COMPUTE ENGINE VM
+------------------------------
+1. Create a VM in GCP Console (Debian 12, e2-medium)
+2. Copy this archive to the VM
+3. Extract and run:
+   tar xzf qmi-compass.tar.gz
+   cd qmi-compass
+   npm install --legacy-peer-deps
+   chmod +x deploy/vm-setup.sh
+   ./deploy/vm-setup.sh
+4. Open http://YOUR_VM_IP in browser
+
+
+METHOD 3: MANUAL DOCKER (Any Server)
+-------------------------------------
+1. Extract the archive
+2. Install deps: npm install --legacy-peer-deps
+3. Build image: docker build -t qmi-compass .
+4. Run: docker run -d -p 3000:3000 -v qmi-data:/app/data \
+     -e DATABASE_URL=file:/app/data/qmi.db \
+     -e AUTH_SECRET=$(openssl rand -base64 32) \
+     qmi-compass
+5. Seed database: curl -X POST http://localhost:3000/api/seed
+
+
+⚠️  IMPORTANT NOTES
+-------------------
+- After extracting, you MUST run npm install (or bun install)
+  before deploying — the lock file is not included.
+- The AUTH_SECRET environment variable is required.
+- For Cloud Run, SQLite storage is ephemeral by default.
+  Use deploy/cloud-run-volume.yaml for persistent storage.
+- After deploying, visit /api/seed to populate demo data.
+
+
+📞 NEED HELP?
+--------------
+- Cloud Run docs: https://cloud.google.com/run/docs
+- Docker docs: https://docs.docker.com
+- gcloud CLI: https://cloud.google.com/sdk/docs/install
