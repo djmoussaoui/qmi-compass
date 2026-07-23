@@ -81,14 +81,15 @@ export function HomePage() {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-3 leading-tight">
-              بوصلة <span className="text-primary">بوصلة التعليم القرآني</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-primary/80 font-medium mb-2">
-              بوصلة التعليم القرآني
+             <p className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-3 leading-tight">
+               QMI: Qur&apos;an as a Medium of Instruction
             </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-3 leading-tight">
+              <span className="text-primary">بوصلة التعليم القرآني</span>
+            </h1>
+           
             <p className="text-sm text-muted-foreground mb-1">
-              QMI: Qur&apos;an as a Medium of Instruction
+             
             </p>
             <p className="text-lg text-muted-foreground/80 mb-2 font-medium">
               القرآن كوسيلة للتعليم
