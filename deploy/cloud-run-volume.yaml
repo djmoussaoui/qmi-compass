@@ -1,0 +1,64 @@
+# =============================================
+# Cloud Run Service with Persistent Volume
+# =============================================
+# This YAML defines a Cloud Run service that uses
+# a Cloud Storage FUSE mount for persistent SQLite storage.
+#
+# Deploy with:
+#   gcloud run deploy qmi-compass \
+#     --source=. \
+#     --region=europe-west1 \
+#     --execution-environment=gen2 \
+#     --cpu=1 --memory=1Gi \
+#     --add-volume=name=qmi-data,type=cloud-storage,bucket=YOUR_BUCKET_NAME \
+#     --add-volume-mount=volume=qmi-data,mount-path=/app/data
+#
+# Or apply this service YAML:
+#   gcloud run services replace cloud-run-volume.yaml --region=europe-west1
+# =============================================
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: qmi-compass
+  annotations:
+    run.googleapis.com/launch-stage: BETA
+spec:
+  template:
+    metadata:
+      annotations:
+        # Use Gen2 execution environment (required for volumes)
+        run.googleapis.com/execution-environment: gen2
+        # Request 1 vCPU, 1Gi memory
+        run.googleapis.com/cpu: "1"
+        run.googleapis.com/memory: "1Gi"
+        # Allow unauthenticated access (change for production)
+        run.googleapis.com/ingress: "all"
+    spec:
+      containerConcurrency: 80
+      timeoutSeconds: 300
+      containers:
+        - image: europe-west1-docker.pkg.dev/YOUR_PROJECT_ID/qmi-compass-repo/qmi-compass:latest
+          ports:
+            - containerPort: 3000
+              name: http1
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: DATABASE_URL
+              value: "file:/app/data/qmi.db"
+            - name: PORT
+              value: "3000"
+          volumeMounts:
+            - name: qmi-data
+              mountPath: /app/data
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+      volumes:
+        - name: qmi-data
+          csi:
+            driver: gcsfuse.run.googleapis.com
+            volumeAttributes:
+              bucketName: YOUR_BUCKET_NAME
