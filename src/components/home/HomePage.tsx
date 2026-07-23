@@ -138,11 +138,7 @@ export function HomePage() {
         </div>
 
         {/* Wave separator */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 60L60 52C120 44 240 28 360 22C480 16 600 20 720 28C840 36 960 48 1080 48C1200 48 1320 36 1380 30L1440 24V60H1380C1320 60 1200 60 1080 60C960 60 840 60 720 60C600 60 480 60 360 60C240 60 120 60 60 60H0Z" fill="var(--color-background)" />
-          </svg>
-        </div>
+        
       </section>
 
       {/* How It Works */}
