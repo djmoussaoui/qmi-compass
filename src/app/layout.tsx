@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   keywords: ["QMI", "Qur'an", "Education", "Moral Values", "Character Education", "القرآن", "التعليم", "القيم", "بوصلة"],
   authors: [{ name: "QMI Compass Team" }],
   icons: {
-    icon: "/qmilogo.svg",
+    icon: "qmilogo.svg",
   },
 };
 
