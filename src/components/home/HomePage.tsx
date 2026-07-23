@@ -82,7 +82,7 @@ export function HomePage() {
 
             {/* Title */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-3 leading-tight">
-              بوصلة <span className="text-primary">QMI</span>
+              بوصلة <span className="text-primary">بوصلة التعليم القرآني</span>
             </h1>
             <p className="text-lg sm:text-xl text-primary/80 font-medium mb-2">
               بوصلة التعليم القرآني
